@@ -1,0 +1,11 @@
+$kind: http-request
+url: http://localhost:3000/auth/login
+method: POST
+body:
+  type: json
+  content: '{"email": "lorenzjustinsarte@gmail.com", "password": "password123"}'
+scripts:
+  - type: afterResponse
+    code: const response = pm.response.json(); pm.environment.set("token", response.accessToken);
+    language: text/javascript
+order: 1461509388900035
